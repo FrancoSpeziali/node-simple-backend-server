@@ -1,8 +1,12 @@
 # Node.js Simple Backend Server
 
-In this assignment you will be expected to write a backend component to handle saving and serving information to and from a client.
+In this assignment you will be expected to write a backend system to handle saving and serving information to and from a client.
 
 Most of the server code has already been provided for you - you will need to concentrate on the internal workings of the server (file system).
+
+## Getting started
+
+Please run `npm install` before starting
 
 ## What you will be doing
 
@@ -70,7 +74,7 @@ Research: [fs.appendFile()](https://www.geeksforgeeks.org/node-js-fs-appendfile-
 
     The function should use the `fs.appendFile()` function
     
-    The function should either return a Promise
+    The function should either return a Promise - OR - use a Promise natively (if for example you are importing `('fs').promises` or `('fs/promises')`) 
     
     The function should take 2 arguments, `filename` and `data`
 
@@ -86,7 +90,7 @@ Inside this function, we can access the data sent with the `BODY` of the `POST` 
  
     > Hint: You will need to use the `JSON.stringify()` function
 
-2. From inside the callback in `app.post()`, call the function you created in **Assignment 2**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
+2. From inside the callback in `app.post()`, call the function you created in **Assignment 3**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
 
     - If the `Promise` resolves:
         
@@ -106,7 +110,7 @@ Inside this function, we can access the data sent with the `BODY` of the `POST` 
 
 Research: [fs.readFile()](https://www.geeksforgeeks.org/node-js-fs-readfile-method/)
 
-1. Create a function which will write data to the server
+1. Create a function which will read data from the server
 
     The function should use the `fs.readFile()` function
     
