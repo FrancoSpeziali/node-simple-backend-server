@@ -1,6 +1,6 @@
 # Node.js Simple Backend Server
 
-In this assignment you will be expected to write a backend component to handle saving and serving information to and from a client.
+In this assignment you will be expected to write a backend system to handle saving and serving information to and from a client.
 
 Most of the server code has already been provided for you - you will need to concentrate on the internal workings of the server (file system).
 
