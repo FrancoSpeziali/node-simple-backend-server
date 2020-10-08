@@ -101,6 +101,8 @@ Inside this function, we can access the data sent with the `BODY` of the `POST` 
     - If the `Promise` rejects:
     
         1. Set the status of the response to 500 with the function `response.status(500)`
+        
+        2. Send the message "Sorry, unable to process request" to the client with the function `response.send()`
 
 3. Test your code by making a `POST` request, sending a `JSON` object as the body. Include some test data here. When you make your request, it should create a new file with the data you passed in.
 
@@ -138,7 +140,7 @@ If you look at the code again, you should notice a function call, called `app.ge
     
         1. Set the status of the response to 500 with the function `response.status(500)`
         
-        1. Send the message "Sorry, unable to process request" to the client with the function `response.send()`
+        2. Send the message "Sorry, unable to process request" to the client with the function `response.send()`
 
 ## Assignment 7 - Build a frontend to make these calls
 
