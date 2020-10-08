@@ -74,7 +74,7 @@ Research: [fs.writeFile()](https://www.geeksforgeeks.org/node-js-fs-writefile-me
 
     The function should use the `fs.writeFile()` function
     
-    The function should either return a Promise - OR - use a Promise natively (if for example you are importing `(fs).promises` or `('fs/promises')`) 
+    The function should either return a Promise - OR - use a Promise natively (if for example you are importing `('fs').promises` or `('fs/promises')`) 
     
     The function should take 2 arguments, `filename` and `data`
 
