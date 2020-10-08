@@ -64,25 +64,39 @@ Before you can use the `fs` module, we should import it:
 const fs = require('fs');
 ```
 
-Research: [fs.writeFile()](https://www.geeksforgeeks.org/node-js-fs-writefile-method/?ref=lbp)
+Research: [fs.appendFile()](https://www.geeksforgeeks.org/node-js-fs-appendfile-function/)
 
 1. Create a function which will write data to the server
 
-    The function should use the `fs.writeFile()` function
+    The function should use the `fs.appendFile()` function
     
     The function should either return a Promise
     
     The function should take 2 arguments, `filename` and `data`
 
-## Assignment 4 - Writing data from the user
+## Assignment 4 - Writing data from a POST request
 
-Update the `app.post()` function with the route `/save/user`:
+Look for the `app.post()` function with the route `/save/user`.
+
+This function is called when the client makes a POST request.
+
+Inside this function, we can access the data sent with the `BODY` of the `POST` request with the property `request.body`.
  
  1. Take the `request.body` value and `stringify` it
  
     > Hint: You will need to use the `JSON.stringify()` function
 
 2. From inside the callback in `app.post()`, call the function you created in **Assignment 2**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
+
+    - If the `Promise` resolves:
+        
+        1. Set the status of the response to 200 with the function `response.status(200)`
+        
+        2. Send the file data back to the user via the function `response.send()`
+        
+    - If the `Promise` rejects:
+    
+        1. Set the status of the response to 500 with the function `response.status(500)`
 
 3. Test your code by making a `POST` request, sending a `JSON` object as the body. Include some test data here. When you make your request, it should create a new file with the data you passed in.
 
@@ -102,7 +116,7 @@ Research: [fs.readFile()](https://www.geeksforgeeks.org/node-js-fs-readfile-meth
     
     The function should `return` or `resolve` with the data from the file
 
-## Assignment 6 - Sending data with a GET request
+## Assignment 6 - Sending a GET request
 
 If you look at the code again, you should notice a function call, called `app.get()`. This is the `GET` request counterpart for your `POST` request. We will make this return a value.
 
@@ -110,15 +124,15 @@ If you look at the code again, you should notice a function call, called `app.ge
 
     > Hint: Remember, this function should return a `Promise`
 
-- If the `Promise` resolves:
+    - If the `Promise` resolves:
+        
+        1. Set the status of the response to 200 with the function `response.status(200)`
+        
+        2. Send the file data back to the user via the function `response.send()`
+        
+    - If the `Promise` rejects:
     
-    1. Set the status of the response to 200 with the function `response.status(200)`
-    
-    2. Send the file data back to the user via the function `response.send()`
-    
-- If the `Promise` rejects:
-
-    1. Set the status of the response to 500 with the function `response.status(500)`
+        1. Set the status of the response to 500 with the function `response.status(500)`
 
 ## Assignment 7 - Build a frontend to make these calls
 
