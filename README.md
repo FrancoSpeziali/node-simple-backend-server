@@ -4,6 +4,10 @@ In this assignment you will be expected to write a backend system to handle savi
 
 Most of the server code has already been provided for you - you will need to concentrate on the internal workings of the server (file system).
 
+## Getting started
+
+Please run `npm install` before starting
+
 ## What you will be doing
 
 This project will teach you:
