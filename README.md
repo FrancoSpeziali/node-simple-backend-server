@@ -162,7 +162,7 @@ Build a frontend which will make both the `GET` and `POST` requests you were pre
 
     2. Use `JSON.stringify` to stringify this object
     
-    3. Use the `fetch` API to send this object to your server endpoint, with the following options:
+    3. Use the `fetch` API to send this object to your server endpoint which should be `http://localhost:3001/save/user`, providing the following options:
     
     ```
         method: 'post',
