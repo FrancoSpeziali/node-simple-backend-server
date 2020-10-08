@@ -96,7 +96,7 @@ Update the `app.post()` function with the route `/save/user`:
 
 Research: [fs.readFile()](https://www.geeksforgeeks.org/node-js-fs-readfile-method/)
 
-1. Create a function which will write data to the server
+1. Create a function which will read data from the server
 
     The function should use the `fs.readFile()` function
     
