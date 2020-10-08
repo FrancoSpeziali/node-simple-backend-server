@@ -74,7 +74,7 @@ Research: [fs.writeFile()](https://www.geeksforgeeks.org/node-js-fs-writefile-me
 
     The function should use the `fs.writeFile()` function
     
-    The function should either return a Promise
+    The function should either return a Promise - OR - use a Promise natively (if for example you are importing `(fs).promises` or `('fs/promises')`) 
     
     The function should take 2 arguments, `filename` and `data`
 
@@ -86,7 +86,7 @@ Update the `app.post()` function with the route `/save/user`:
  
     > Hint: You will need to use the `JSON.stringify()` function
 
-2. From inside the callback in `app.post()`, call the function you created in **Assignment 2**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
+2. From inside the callback in `app.post()`, call the function you created in **Assignment 3**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
 
 3. Test your code by making a `POST` request, sending a `JSON` object as the body. Include some test data here. When you make your request, it should create a new file with the data you passed in.
 
