@@ -137,6 +137,8 @@ If you look at the code again, you should notice a function call, called `app.ge
     - If the `Promise` rejects:
     
         1. Set the status of the response to 500 with the function `response.status(500)`
+        
+        1. Send the message "Sorry, unable to process request" to the client with the function `response.send()`
 
 ## Assignment 7 - Build a frontend to make these calls
 
