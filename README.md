@@ -1,4 +1,4 @@
-# Node.js Simple Backend Server
+# Node / Express.js Simple Backend Server
 
 In this assignment you will be expected to write a backend system to handle saving and serving information to and from a client.
 
