@@ -38,17 +38,17 @@ Let's perform a simple test to see if we can connect to our server.
 
 2. Once your server is running, you can connect to it with one of your API testing tools (Postman, Insomnia)
 
-    Use this URL `http://localhost:3000/save/user` to connect to the server
+    Use this URL `http://localhost:3001/save/user` to connect to the server
 
 3. What is the response?
 
 ## Assignment 2 - Understanding the code
 
-In the last assignment, we connected to the server using the path `http://localhost:3000/save/user`, but why this path?
+In the last assignment, we connected to the server using the path `http://localhost:3001/save/user`, but why this path?
 
 The first part, `http://localhost`, is because we are running the server locally on our machines. But where does the rest come from?
 
-1. Look at the code inside `server.js`. On the last line we have the following line `app.listen(3000);`. That number `3000` is known as the `port`. This is the port number to which the server is listening to.
+1. Look at the code inside `server.js`. On the last line we have the following line `app.listen(3001);`. That number `3001` is known as the `port`. This is the port number to which the server is listening to.
 
 2. Look again at the code inside `server.js`
     
@@ -56,9 +56,9 @@ The first part, `http://localhost`, is because we are running the server locally
     
     This function call is listening for a path called `/save/user`
     
-If we put this information together, we build the URL `http://localhost:3000/save/user`
+If we put this information together, we build the URL `http://localhost:3001/save/user`
 
-## Assignment 3 - Preparing to write data
+## Assignment 3 - Writing data to a file
 
 For this assignment, we will be using the Node.js module, `fs`. Look over your notes regarding the Node.js file system.
 
@@ -78,7 +78,9 @@ Research: [fs.appendFile()](https://www.geeksforgeeks.org/node-js-fs-appendfile-
     
     The function should take 2 arguments, `filename` and `data`
 
-## Assignment 4 - Writing data from a POST request
+## Assignment 4 - Sending data to the server with a POST request
+
+Our client will send data to the server. We will take this data and save it to a file.
 
 Look for the `app.post()` function with the route `/save/user`.
 
@@ -90,13 +92,13 @@ Inside this function, we can access the data sent with the `BODY` of the `POST` 
  
     > Hint: You will need to use the `JSON.stringify()` function
 
-2. From inside the callback in `app.post()`, call the function you created in **Assignment 3**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
+2. From inside the callback in `app.post()`, call the function which writes the file you created in **Assignment 3**, passing in the data you stringified in the previous step. Also pass in an appropriate filename.
 
     - If the `Promise` resolves:
         
-        1. Set the status of the response to 200 with the function `response.status(200)`
+        1. Set the status of the response to 200 with the function `response.status(200)`. A `200` code means that everything is ok. 
         
-        2. Send the file data back to the user via the function `response.send()`
+        2. We will now use `response.send()` to tell the client everything went ok. You can place any message you like inside the parentheses, for example `response.send('Thank you for using my server! 🤖!)`
         
     - If the `Promise` rejects:
     
@@ -122,19 +124,23 @@ Research: [fs.readFile()](https://www.geeksforgeeks.org/node-js-fs-readfile-meth
     
     The function should `return` or `resolve` with the data from the file
 
-## Assignment 6 - Sending a GET request
+## Assignment 6 - Getting data from the server with a GET request
 
-If you look at the code again, you should notice a function call, called `app.get()`. This is the `GET` request counterpart for your `POST` request. We will make this return a value.
+If you look at the code again, you should notice a function call, called `app.get()`. This is the `GET` request counterpart for your `POST` request. We will make this return a value to the client.
 
 1. From inside the callback in `app.get()`, call the function you created in **Assignment 5**, passing in the filename you wish to read from.
 
     > Hint: Remember, this function should return a `Promise`
 
     - If the `Promise` resolves:
+    
+        1. If you completed **Assignment 5** correctly, the `Promise` should resolve with a value. Use `JSON.stringify()` to stringify this value and save it in a variable.
+    
+        2. Set the "type" of response to "json" with the following function call `response.type('json')`. Will this line of code we are telling the client that the response will be of `JSON` type.
         
-        1. Set the status of the response to 200 with the function `response.status(200)`
+        3. Set the status of the response to 200 with the function `response.status(200)`
         
-        2. Send the file data back to the user via the function `response.send()`
+        4. We will now use `response.send()` to send to the client the data from the file. Inside the parentheses, place the stringified data. We are sending the data back to the client.
         
     - If the `Promise` rejects:
     
@@ -142,7 +148,7 @@ If you look at the code again, you should notice a function call, called `app.ge
         
         2. Send the message "Sorry, unable to process request" to the client with the function `response.send()`
 
-## Assignment 7 - Build a frontend to make these calls
+## Assignment 7 - Build a frontend to make these requests
 
 Build a frontend which will make both the `GET` and `POST` requests you were previously testing with your API testing tool.
 
